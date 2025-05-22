@@ -1,18 +1,18 @@
 {
 	"schemaVersion": 1,
-	"id": "savsziget",
+	"id": "radioactive",
 	"version": "1.0.0",
-	"name": "Sav Sziget Mod",
-	"description": "A classic acid island, reinvented./Tipikus sav sziget újra gondolva.",
+	"name": "Radioactive Mod",
+	"description": "Adds radioactive water to Minecraft. Be careful — touching it causes radiation damage!",
 	"authors": [
-		"MidnightCrow"
+		"MidnightCrow00 && Kelo1337"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/savsziget/icon.png",
+	"icon": "assets/radioactive/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
