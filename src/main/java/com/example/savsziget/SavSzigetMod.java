@@ -10,7 +10,10 @@ import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.entity.LivingEntity;
+
+
+
 
 public class SavSzigetMod implements ModInitializer {
 	private static final int DAMAGE_COOLDOWN = 10;
@@ -19,34 +22,41 @@ public class SavSzigetMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		System.out.println("Sav Sziget Mod initialized!");
-		vizSebez();
+//		vizSebez();
 		csonakCraftolas();
 
 
 
 	}
 
-	private void vizSebez() {
-		ServerTickEvents.END_SERVER_TICK.register(server -> {
-			tickCounter++;
-			if (tickCounter >= DAMAGE_COOLDOWN) {
-				tickCounter = 0;
+//	private void vizSebez() {
+//		ServerTickEvents.END_SERVER_TICK.register(server -> {
+//			tickCounter++;
+//			if (tickCounter >= DAMAGE_COOLDOWN) {
+//				tickCounter = 0;
+//
+//				for (ServerWorld world : server.getWorlds()) {
+//					for (LivingEntity entity : world.getEntitiesByClass(LivingEntity.class, entity -> true, entity -> true)) {
+//
+//						if (entity.isTouchingWater()) {
+//							if (entity instanceof ServerPlayerEntity player) {
+//								player.damage((ServerWorld) world,world.getDamageSources().lava(), 4.0F);
+//
+//								BlockPos pos = player.getBlockPos();
+//								if (world.hasRain(pos) && world.isSkyVisible(pos.up())) {
+//									player.damage((ServerWorld) world,world.getDamageSources().lava(), 1.0F);
+//								}
+//							} else {
+//								entity.damage((ServerWorld) world,world.getDamageSources().lava(), 2.0F);
+//							}
+//						}
+//					}
+//				}
+//			}
+//		});
+//	}
 
-				for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
-					World world = player.getWorld();
-					BlockPos pos = player.getBlockPos();
 
-					if (player.isTouchingWater()) {
-						player.damage((ServerWorld)world, world.getDamageSources().lava(), 4.0F);
-					}
-
-					if (world.hasRain(pos) && world.isSkyVisible(pos.up())) {
-						player.damage((ServerWorld)world, world.getDamageSources().lava(), 1.0F);
-					}
-				}
-			}
-		});
-	}
 
 	private void csonakCraftolas() {
 		UseItemCallback.EVENT.register((player, world, hand) -> {
