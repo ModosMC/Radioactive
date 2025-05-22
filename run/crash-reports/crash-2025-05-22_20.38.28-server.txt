@@ -1,0 +1,132 @@
+---- Minecraft Crash Report ----
+// You're mean.
+
+Time: 2025-05-22 20:38:28
+Description: Exception in server tick loop
+
+java.lang.NullPointerException: Cannot read field "minX" because "box" is null
+	at knot//net.minecraft.world.entity.SectionedEntityCache.forEachInBox(SectionedEntityCache.java:44)
+	at knot//net.minecraft.world.entity.SectionedEntityCache.forEachIntersects(SectionedEntityCache.java:127)
+	at knot//net.minecraft.world.entity.SimpleEntityLookup.forEachIntersects(SimpleEntityLookup.java:48)
+	at knot//net.minecraft.world.World.collectEntitiesByType(World.java:718)
+	at knot//net.minecraft.world.World.collectEntitiesByType(World.java:712)
+	at knot//net.minecraft.world.World.getEntitiesByType(World.java:707)
+	at knot//net.minecraft.world.EntityView.getEntitiesByClass(EntityView.java:24)
+	at knot//com.example.savsziget.SavSzigetMod.lambda$vizSebez$1(SavSzigetMod.java:38)
+	at knot//net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents.lambda$static$2(ServerTickEvents.java:55)
+	at knot//net.minecraft.server.MinecraftServer.handler$zim000$fabric-lifecycle-events-v1$onEndTick(MinecraftServer.java:3217)
+	at knot//net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:970)
+	at knot//net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:114)
+	at knot//net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:706)
+	at knot//net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:290)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21.5
+	Minecraft Version ID: 1.21.5
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 21.0.5, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode, sharing), Oracle Corporation
+	Memory: 305539240 bytes (291 MiB) / 968884224 bytes (924 MiB) up to 4232052736 bytes (4036 MiB)
+	CPUs: 20
+	Processor Vendor: GenuineIntel
+	Processor Name: 13th Gen Intel(R) Core(TM) i5-13600K
+	Identifier: Intel64 Family 6 Model 183 Stepping 1
+	Microarchitecture: Raptor Lake
+	Frequency (GHz): 3.49
+	Number of physical packages: 1
+	Number of physical CPUs: 14
+	Number of logical CPUs: 20
+	Graphics card #0 name: AMD Radeon RX 7600 XT
+	Graphics card #0 vendor: Advanced Micro Devices, Inc.
+	Graphics card #0 VRAM (MiB): 16368.00
+	Graphics card #0 deviceId: VideoController1
+	Graphics card #0 versionInfo: 32.0.11037.4004
+	Memory slot #0 capacity (MiB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 4.80
+	Memory slot #0 type: DDR5
+	Memory slot #1 capacity (MiB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 4.80
+	Memory slot #1 type: DDR5
+	Virtual memory max (MiB): 30477.05
+	Virtual memory used (MiB): 29603.41
+	Swap memory total (MiB): 14336.00
+	Swap memory used (MiB): 897.94
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 793126.38, total: 1952653.00
+	Space in storage for workdir (MiB): available: 793126.38, total: 1952653.00
+	JVM Flags: 0 total; 
+	Fabric Mods: 
+		fabric-api: Fabric API 0.119.5+1.21.5
+		fabric-api-base: Fabric API Base 0.4.62+73a52b4b07
+		fabric-api-lookup-api-v1: Fabric API Lookup API (v1) 1.6.95+86c3a9f107
+		fabric-biome-api-v1: Fabric Biome API (v1) 16.0.7+2dd063df07
+		fabric-block-api-v1: Fabric Block API (v1) 1.0.37+86c3a9f107
+		fabric-block-view-api-v2: Fabric BlockView API (v2) 1.0.26+aa6d566c07
+		fabric-blockrenderlayer-v1: Fabric BlockRenderLayer Registration (v1) 2.0.16+86c3a9f107
+		fabric-client-gametest-api-v1: Fabric Client Game Test API (v1) 4.1.10+f3ffa98907
+		fabric-client-tags-api-v1: Fabric Client Tags 1.1.37+86c3a9f107
+		fabric-command-api-v1: Fabric Command API (v1) 1.2.70+f71b366f07
+		fabric-command-api-v2: Fabric Command API (v2) 2.2.49+73a52b4b07
+		fabric-commands-v0: Fabric Commands (v0) 0.2.87+df3654b307
+		fabric-content-registries-v0: Fabric Content Registries (v0) 10.0.11+216530c807
+		fabric-convention-tags-v1: Fabric Convention Tags 2.1.27+7f945d5b07
+		fabric-convention-tags-v2: Fabric Convention Tags (v2) 2.14.1+277f99c707
+		fabric-crash-report-info-v1: Fabric Crash Report Info (v1) 0.3.12+86c3a9f107
+		fabric-data-attachment-api-v1: Fabric Data Attachment API (v1) 1.6.6+7b20cbb007
+		fabric-data-generation-api-v1: Fabric Data Generation API (v1) 22.3.1+d94614b807
+		fabric-dimensions-v1: Fabric Dimensions API (v1) 4.0.16+86c3a9f107
+		fabric-entity-events-v1: Fabric Entity Events (v1) 2.0.25+27c1078f07
+		fabric-events-interaction-v0: Fabric Events Interaction (v0) 4.0.13+73a52b4b07
+		fabric-game-rule-api-v1: Fabric Game Rule API (v1) 1.0.70+c327076a07
+		fabric-gametest-api-v1: Fabric Game Test API (v1) 3.1.1+7b20cbb007
+		fabric-item-api-v1: Fabric Item API (v1) 11.3.1+eeb42f0207
+		fabric-item-group-api-v1: Fabric Item Group API (v1) 4.2.8+3459fc6107
+		fabric-key-binding-api-v1: Fabric Key Binding API (v1) 1.0.63+ecf51cdc07
+		fabric-keybindings-v0: Fabric Key Bindings (v0) 0.2.61+df3654b307
+		fabric-lifecycle-events-v1: Fabric Lifecycle Events (v1) 2.5.13+5cbce67307
+		fabric-loot-api-v2: Fabric Loot API (v2) 3.0.47+3f89f5a507
+		fabric-loot-api-v3: Fabric Loot API (v3) 1.0.35+86c3a9f107
+		fabric-message-api-v1: Fabric Message API (v1) 6.0.33+86c3a9f107
+		fabric-model-loading-api-v1: Fabric Model Loading API (v1) 5.0.2+55bce67a07
+		fabric-networking-api-v1: Fabric Networking API (v1) 4.4.0+f3ffa98907
+		fabric-object-builder-api-v1: Fabric Object Builder API (v1) 21.0.0+7b20cbb007
+		fabric-particles-v1: Fabric Particles (v1) 4.0.22+86c3a9f107
+		fabric-recipe-api-v1: Fabric Recipe API (v1) 8.1.6+052a85d007
+		fabric-registry-sync-v0: Fabric Registry Sync (v0) 6.1.20+b556383207
+		fabric-renderer-api-v1: Fabric Renderer API (v1) 6.0.0+55bce67a07
+		fabric-renderer-indigo: Fabric Renderer - Indigo 3.0.0+55bce67a07
+		fabric-rendering-data-attachment-v1: Fabric Rendering Data Attachment (v1) 0.3.64+73761d2e07
+		fabric-rendering-fluids-v1: Fabric Rendering Fluids (v1) 3.1.27+86c3a9f107
+		fabric-rendering-v1: Fabric Rendering (v1) 11.1.11+081cc04307
+		fabric-resource-conditions-api-v1: Fabric Resource Conditions API (v1) 5.0.21+73a52b4b07
+		fabric-resource-loader-v0: Fabric Resource Loader (v0) 3.1.6+02ca679607
+		fabric-screen-api-v1: Fabric Screen API (v1) 2.0.46+86c3a9f107
+		fabric-screen-handler-api-v1: Fabric Screen Handler API (v1) 1.3.127+c327076a07
+		fabric-sound-api-v1: Fabric Sound API (v1) 1.0.38+86c3a9f107
+		fabric-tag-api-v1: Fabric Tag API (v1) 1.0.16+ecf51cdc07
+		fabric-transfer-api-v1: Fabric Transfer API (v1) 5.4.23+7b20cbb007
+		fabric-transitive-access-wideners-v1: Fabric Transitive Access Wideners (v1) 6.3.17+f17a180c07
+		fabricloader: Fabric Loader 0.16.10
+		java: Java HotSpot(TM) 64-Bit Server VM 21
+		minecraft: Minecraft 1.21.5
+		mixinextras: MixinExtras 0.4.1
+		radioactive: Radioactive Mod 1.0.0
+	Server Running: true
+	Player Count: 0 / 8; []
+	Active Data Packs: vanilla, fabric, fabric-convention-tags-v2, fabric-gametest-api-v1
+	Available Data Packs: fabric, fabric-convention-tags-v2, fabric-gametest-api-v1, minecart_improvements, redstone_experiments, trade_rebalance, vanilla
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	World Seed: 453854363841053739
+	Suppressed Exceptions: ~~NONE~~
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fabric'; Server brand changed to 'fabric'
+	Launched Version: Fabric
