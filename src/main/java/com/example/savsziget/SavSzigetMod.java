@@ -26,6 +26,7 @@ public class SavSzigetMod implements ModInitializer {
 		csonakCraftolas();
 
 
+
 	}
 
 	private void vizSebez() {
